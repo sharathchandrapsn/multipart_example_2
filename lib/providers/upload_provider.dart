@@ -1,8 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:http/http.dart';
+import 'package:multipart_example_2/providers/api_service.dart';
 
-class UploadProvider extends ChangeNotifier {
-  UploadProvider();
+class UploadProvider extends ChangeNotifier{
+
   Future<String?> uploadImage(filename, url) async {
     print("filename:: $filename \n url:: $url");
     var request = MultipartRequest('POST', Uri.parse(url));
@@ -17,7 +18,6 @@ class UploadProvider extends ChangeNotifier {
   }
 
   String? state = "";
-
   String? url;
 
   String? get getState => state;
@@ -33,4 +33,5 @@ class UploadProvider extends ChangeNotifier {
   }
 
   String? get getUrl => url;
+
 }

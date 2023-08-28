@@ -39,6 +39,14 @@ dependencies:
   http: ^0.13.5
   image_picker: ^1.0.2
   provider: ^6.0.5
+  mockito: ^5.4.0
+  geocoding: ^2.1.0
+  georange: ^1.0.0
+  flutter_polyline_points: ^1.0.0
+  google_maps_flutter: ^2.3.0
+  tuple: ^2.0.2
+  google_directions_api: ^0.9.1
+
 
 dev_dependencies:
   flutter_test:

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:multipart_example_2/providers/upload_provider.dart';
+import 'package:multipart_example_2/screens/flexible_polyline.dart';
+import 'package:multipart_example_2/screens/latlngz.dart';
 import 'package:multipart_example_2/screens/upload_page.dart';
 import 'package:provider/provider.dart';
 
@@ -30,11 +32,13 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
               TextField(
                 controller: controller,
-                onSubmitted: (str) => switchScreen(str, context),
+                onSubmitted: (str) => switchScreen(controller.text, context),
               ),
               TextButton(
                 child: const Text("Take me to the upload screen"),
                 onPressed: (){
+                  List<LatLngZ> latLngList = FlexiblePolyline.decode(FlexiblePolyline.encodeString);
+                  print("latLngList is:: $latLngList");
                   switchScreen(controller.text, context);
                 },
               )
@@ -43,6 +47,6 @@ class _MyHomePageState extends State<MyHomePage> {
         ));
   }
 
-  void switchScreen(str, context) => Navigator.push(
-      context, MaterialPageRoute(builder: (context) => UploadPage(url: str)));
+  void switchScreen(url, context) => Navigator.push(
+      context, MaterialPageRoute(builder: (context) => UploadPage(url: url)));
 }
